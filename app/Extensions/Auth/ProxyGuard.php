@@ -53,7 +53,7 @@ class ProxyGuard implements Guard
      */
     public function logout()
     {
-        if (!is_null($this->user)) {
+        if (!is_null($this->user())) {
             $this->proxy->logout($this->request->cookie(config('web.cookie')));
         }
         $this->user = null;

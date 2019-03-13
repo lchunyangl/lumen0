@@ -20,6 +20,7 @@ class AuthController extends Controller
 
     public function __construct(User $user)
     {
+        $this->middleware('auth', ['only' => 'user']);
         $this->user = $user;
     }
 
@@ -45,7 +46,8 @@ class AuthController extends Controller
         ]);
     }
 
-    public function user(){
+    public function user()
+    {
         return Auth::user();
     }
 
