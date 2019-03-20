@@ -16,7 +16,7 @@ class ProxyService
 {
     protected $client;
 
-    protected $timeout = 1;
+    protected $timeout = 10;
 
     public function __construct(Client $client)
     {
