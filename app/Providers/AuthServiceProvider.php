@@ -30,9 +30,6 @@ class AuthServiceProvider extends ServiceProvider
         // application. The callback which receives the incoming request instance
         // should return either a User instance or null. You're free to obtain
         // the User instance via an API token or any other method necessary.
-        Auth::extend('proxy', function ($app) {
-            return $app->make(ProxyGuard::class);
-        });
 
         $this->app['auth']->viaRequest('api', function ($request) {
             if ($request->cookie('api_token')) {

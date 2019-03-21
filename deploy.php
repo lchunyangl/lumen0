@@ -7,7 +7,7 @@ require 'recipe/laravel.php';
 set('application', 'miaosha');
 
 // Project repository
-set('repository', '');
+set('repository', 'git@github.com:lchunyangl/lumen0.git');
 
 // [Optional] Allocate tty for git clone. Default value is false.
 set('git_tty', false);

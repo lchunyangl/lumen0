@@ -19,4 +19,6 @@ $router->group(['namespace' => 'V1', 'prefix' => 'api'], function ($router) {
     $router->post('login', 'AuthController@login');
     $router->get('user', 'AuthController@user');
     $router->delete('logout', 'AuthController@logout');
+
+    $router->get('miaosha', 'MiaoshaController@index');
 });

@@ -21,9 +21,7 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
-$app->configure('web');
-
-$app->withFacades(config('web.aliases'));
+$app->withFacades();
 
 $app->withEloquent();
 
@@ -61,7 +59,7 @@ $app->singleton(
 
 $app->middleware([
     App\Http\Middleware\EncryptCookies::class,
-    App\Http\Middleware\CreateFreshApiToken::class,
+    \Chunyang\Auth\Middleware\CreateFreshApiToken::class
 ]);
 
 $app->routeMiddleware([
@@ -81,6 +79,9 @@ $app->routeMiddleware([
 
 // $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
+$app->register(\Illuminate\Redis\RedisServiceProvider::class);
+$app->register(Chunyang\Miaosha\LumenServiceProvider::class);
+$app->register(Chunyang\Auth\ServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
 /*

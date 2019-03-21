@@ -31,7 +31,7 @@ class AuthController extends Controller
             'password' => $request->input('password'),
             'channel' => 1,
             'ip' => $request->ip(),
-            'timeout' => 1800
+            'timeout' => 8 * 3600
         ];
 
         if (Auth::validate($credentials)) {
@@ -48,6 +48,7 @@ class AuthController extends Controller
 
     public function user()
     {
+        dd(Auth::user()->pay_points);
         return Auth::user();
     }
 
